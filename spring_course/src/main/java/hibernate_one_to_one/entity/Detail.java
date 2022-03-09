@@ -1,6 +1,4 @@
-package hibernate_test_2.entity;
-
-import org.hibernate.annotations.Cascade;
+package hibernate_one_to_one.entity;
 
 import javax.persistence.*;
 
@@ -22,7 +20,7 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(mappedBy = "empDetail")
+    @OneToOne(mappedBy = "empDetail", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id")
     private Employee employee;
 
